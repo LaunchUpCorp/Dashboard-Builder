@@ -1,7 +1,18 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-    <p class="m-3">HELLO WORLD</p>
+  <div class="app">
+    <Title></Title>
+  </div>
 </template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+import Title from './components/Title.vue'
+
+export default defineComponent({
+  name: 'App',
+  components: { Title }
+})
+</script>
+<style>
+@import '@/assets/tailwind.css';
+</style>
