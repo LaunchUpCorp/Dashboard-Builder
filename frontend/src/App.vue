@@ -1,16 +1,16 @@
 <template>
   <div class="app">
-    <Title></Title>
+    <headerTitle></headerTitle>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import Title from './components/Title.vue'
+import { defineComponent } from 'vue'
+import headerTitle from './components/Title.vue'
 
 export default defineComponent({
   name: 'App',
-  components: { Title }
+  components: { headerTitle }
 })
 </script>
 <style>
