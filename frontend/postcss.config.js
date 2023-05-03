@@ -1,4 +1,4 @@
-var module = require('module')
+// var module = require('module')
 module.exports = {
   plugins: {
     tailwindcss: {},
