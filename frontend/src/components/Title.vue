@@ -1,6 +1,6 @@
 <template>
   <div class="headerTitle">
-    <div class="relative">
+    <div>
       <img class="w-8 h-8 fixed top-5 left-0" :src="imageSrc" alt="header" />
       <h1 class="font-bold text-4xl fixed top-5 left-10">{{ title }}</h1>
     </div>
