@@ -13,6 +13,3 @@ export default defineComponent({
   components: { headerTitle }
 })
 </script>
-<style>
-@import '@/assets/tailwind.css';
-</style>
