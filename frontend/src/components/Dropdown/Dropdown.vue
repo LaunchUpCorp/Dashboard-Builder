@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { defineComponent, onMounted, ref} from 'vue';
+    import { defineComponent} from 'vue';
 
     export interface selOptions{
         msg: string,
@@ -33,10 +33,10 @@
                 default: "Select"
             }
         },
-        setup(props: any, { emit }) {
+        setup(props: any) {
             const bgColor = props.color
             const selectOptions = props.selOptions
-            const hoverColor = ref(props.hover)
+            const hoverColor = props.hover
             const textColor = props.text
             const selectSize = props.size
             const initMsg = props.msg
