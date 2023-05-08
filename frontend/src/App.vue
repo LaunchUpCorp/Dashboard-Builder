@@ -1,7 +1,20 @@
-<script setup lang="ts">
+<script lang="ts">
+    import { defineComponent, ref } from 'vue';
+    import Upload from './components/Upload/Upload.vue'
 
+    export default defineComponent({
+        setup() {
+
+        },
+        components: {
+            Upload,
+        },
+    })
 </script>
 
 <template>
-    <p class="m-3">HELLO WORLD</p>
+    <div>
+        <p>Upload Data</p>
+        <Upload />
+    </div>
 </template>
