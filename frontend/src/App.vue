@@ -43,7 +43,6 @@
     <div>
         <Dropdown 
             msg = "select"
-            click = "bg-blue-300"
             text = "text-white"
             hover = "hover:bg-blue-700"
             color = "bg-blue-500"
@@ -52,7 +51,6 @@
         />
         <Dropdown 
             msg = "select"
-            click = "bg-red-300"
             text = "text-white"
             hover = "hover:bg-red-700"
             color = "bg-red-500"
