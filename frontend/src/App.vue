@@ -1,15 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
-  <div class="app">
-    <Sidebar></Sidebar>
-  </div>
+  <p class="m-3">HELLO WORLD</p>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import Sidebar from './components/Sidebar.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: { Sidebar }
-})
-</script>
