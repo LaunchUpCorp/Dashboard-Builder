@@ -12,7 +12,6 @@ export default defineComponent({
 
 <template>
     <div>
-      <h1>Avatar Component</h1>
       <Avatar imageUrl="http://placekitten.com/150/150" altText="Placeholder avatar" />
     </div>
   </template>

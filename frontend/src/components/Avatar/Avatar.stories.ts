@@ -7,6 +7,13 @@ export default {
   argTypes: {
     imageUrl: { control: 'text' },
     altText: { control: 'text' }
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'This is a simple Avatar component that displays an image and alt text.'
+      }
+    }
   }
 } as Meta;
 
