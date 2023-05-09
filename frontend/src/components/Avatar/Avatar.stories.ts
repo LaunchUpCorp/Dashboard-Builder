@@ -6,7 +6,12 @@ export default {
   component: Avatar,
   argTypes: {
     imageUrl: { control: 'text' },
-    altText: { control: 'text' }
+    altText: { control: 'text' },
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'radio' },
+      defaultValue: 'md',
+    },
   },
   parameters: {
     docs: {
@@ -20,6 +25,7 @@ export default {
 interface AvatarProps {
   imageUrl: string;
   altText: string;
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const Template: Story<AvatarProps> = (args: AvatarProps) => ({
@@ -27,13 +33,28 @@ const Template: Story<AvatarProps> = (args: AvatarProps) => ({
   setup() {
     return { args };
   },
-  template: '<Avatar :imageUrl="args.imageUrl" :altText="args.altText" />',
+  template: '<Avatar :imageUrl="args.imageUrl" :altText="args.altText" :size="args.size"/>',
 });
 
 export const Default: Story<AvatarProps> = Template.bind({});
 Default.args = {
-  imageUrl: 'https://placekitten.com/150/150',
-  altText: 'Avatar'
+  imageUrl: 'https://placekitten.com/300/300',
+  altText: 'Avatar',
+  size: 'md'
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  imageUrl: 'https://placekitten.com/300/300',
+  altText: 'Small Avatar',
+  size: 'sm'
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  imageUrl: 'https://placekitten.com/300/300',
+  altText: 'Large Avatar',
+  size: 'lg'
 };
 
 
