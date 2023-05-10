@@ -14,14 +14,50 @@
 </script>
 
 <template>
-    <div>
-        <Dropdown class="m-5"
-            theme = "light"
-        >
-            <span>Item 1</span>
-            <span>Item 2</span>
-            <span>Item 3</span>
-            <span>Item 4</span>
-        </Dropdown>
+    <div class="flex flex-row">
+        <div class="flex flex-col">
+            <Dropdown
+                theme = "default"
+            >
+                <span>Item 1</span>
+                <span>Item 2</span>
+                <span>Item 3</span>
+                <span>Item 4</span>
+            </Dropdown>
+            <Dropdown
+                theme = "light"
+            >
+                <span>Item 1</span>
+            </Dropdown>
+            <Dropdown
+                theme = "dark"
+            >
+                <span>Item 1</span>
+                <span>Item 2</span>
+                <span>Item 3</span>
+            </Dropdown>
+        </div>
+        <div class="flex flex-col">
+            <Dropdown
+                theme = "alert"
+            >
+                <span>Item 1</span>
+                <span>Item 2</span>
+            </Dropdown>
+            <Dropdown
+                theme = "confirm"
+            >
+                <span>Item 1</span>
+                <span>Item 2</span>
+                <span>Item 3</span>
+            </Dropdown>
+            <Dropdown
+                theme = "outline danger"
+            >
+                <span>Item 1</span>
+                <span>Item 2</span>
+                <span>Item 3</span>
+            </Dropdown>
+        </div>
     </div>
 </template>

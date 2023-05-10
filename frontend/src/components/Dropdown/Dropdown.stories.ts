@@ -4,7 +4,7 @@ import Dropdown from './Dropdown.vue';
 import '../../index.css';
 
 interface DropdownProps {
-  theme: 'default' | 'dark' | 'light';
+  theme: 'default' | 'dark' | 'light' | 'confirm'| 'alert' | 'outline danger';
 }
 
 export default {
@@ -15,7 +15,7 @@ export default {
       name: 'The theme of the dropdown',
       type: 'string',
       control: 'select',
-      options: [ 'light', 'dark', 'default' ]
+      options: [ 'light', 'dark', 'default', 'confirm', 'alert', 'outline danger' ]
     },
   },
 } as Meta;
@@ -52,3 +52,19 @@ export const Light = Template.bind({});
 Light.args = {
   theme: 'light'
 };
+
+export const Confirm = Template.bind({});
+Confirm.args = {
+  theme: 'confirm',
+};
+
+export const Alert = Template.bind({});
+Alert.args = {
+  theme: 'alert'
+};
+
+export const Outline = Template.bind({});
+Outline.args = {
+  theme: 'outline danger'
+};
+

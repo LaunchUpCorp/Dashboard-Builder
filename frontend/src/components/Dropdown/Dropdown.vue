@@ -2,19 +2,25 @@
 import { defineComponent, PropType, ref } from 'vue';
 
 interface DropdownThemes {
-    theme: 'default' | 'dark' | 'light';
+    theme: 'default' | 'dark' | 'light' | 'alert' | 'confirm' | 'outline danger';
 }
 
 const themeTypes = {
-    'default': 'bg-slate-500 text-black',
-    'dark': 'bg-slate-800 text-white',
-    'light': 'bg-slate-300 text-black'
+    'default': 'bg-blue-500 text-black hover:bg-blue-700',
+    'dark': 'bg-slate-800 text-white hover:bg-slate-700',
+    'light': 'bg-slate-300 text-black hover:bg-slate-400',
+    'alert': 'bg-orange-400 text-black hover:bg-orange-500',
+    'confirm': 'bg-green-400 text-black hover:bg-green-500',
+    'outline danger': 'border-red-500 border-2 text-black hover:bg-red-500',
 };
 
 const themeChildTypes = {
-    'default': 'hover:bg-slate-700',
-    'dark': 'hover:bg-slate-500',
-    'light': 'hover:bg-slate-500' 
+    'default': 'hover:bg-blue-600',
+    'dark': 'hover:bg-slate-600',
+    'light': 'hover:bg-slate-500',
+    'alert': 'hover:bg-orange-600',
+    'confirm': 'hover:bg-green-600',
+    'outline danger': 'hover:bg-red-600', 
 }
 
 export default defineComponent({
@@ -58,10 +64,10 @@ export default defineComponent({
 </script>
 
 <template>
-    <div :class="themeType" class="w-1/5 rounded-md text-center">
-        <div class="flex flex-row items-center px-2">
+    <div :class="themeType" class="rounded-md text-center w-fit m-5">
+        <div class="flex flex-row items-center px-2 space-x-1">
             <button class="flex flex-grow items-center text-center justify-center" @click="isOpen = !isOpen">{{ props.theme }}</button>
-            <p class="ml-auto">{{ isOpen ? "v" : "^" }}</p>
+            <p class="ml-auto">{{ isOpen ? " v" : " ^" }}</p>
         </div>
       <transition>
         <div v-if="isOpen">
