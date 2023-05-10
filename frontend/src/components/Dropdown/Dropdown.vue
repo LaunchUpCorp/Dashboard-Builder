@@ -1,61 +1,76 @@
 <script lang="ts">
-    import { defineComponent} from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 
-    export interface selOptions{
-        msg: string,
-        id: number,
+interface DropdownThemes {
+    theme: 'default' | 'dark' | 'light';
+}
+
+const themeTypes = {
+    'default': 'bg-slate-500',
+    'dark': 'bg-slate-800',
+    'light': 'bg-slate-300'
+};
+
+const themeChildTypes = {
+    'default': 'hover:bg-slate-700',
+    'dark': 'hover:bg-slate-500',
+    'light': 'hover:bg-slate-500' 
+}
+
+export default defineComponent({
+  name: 'Dropdown',
+  props: {
+    theme: {
+        type: String as PropType<DropdownThemes['theme']>,
+        default: 'default'
+    }
+  },
+  setup(props, { slots }) {
+    const isOpen = ref(false);
+    const clickIndex = ref(-1);
+    const children = slots.default ? slots.default() : [];
+
+    const themeType = themeTypes[props.theme]
+
+    const themeChildType = themeChildTypes[props.theme]
+    //Open and close Dropdown
+    function toggleDropdown(index: any) {
+      if (clickIndex.value === index) {
+        clickIndex.value = -1;
+      } else {
+        clickIndex.value = index;
+      }
+      isOpen.value = clickIndex.value !== -1;
     }
 
-    export default defineComponent({
-        name: "Dropdown",
-        props: {
-            color: {
-                type: String,
-                default: "bg-slate-500"
-            },
-            selOptions: {
-                type: Array<selOptions>,
-            },
-            hover: {
-                type: String,
-                default: "hover:bg-slate-700"
-            },
-            text: {
-                type: String,
-                default: "text-black"
-            },
-            size: {
-                type: String,
-                default: "w-1/5"
-            },
-            msg: {
-                type: String,
-                default: "Select"
-            }
-        },
-        setup(props: any) {
-            const bgColor = props.color
-            const selectOptions = props.selOptions
-            const hoverColor = props.hover
-            const textColor = props.text
-            const selectSize = props.size
-            const initMsg = props.msg
-            return {
-                initMsg, bgColor, selectOptions, hoverColor, textColor, selectSize
-            }        
-        },
-    })
+    return {
+      isOpen,
+      clickIndex,
+      toggleDropdown,
+      children,
+      themeType,
+      themeChildType,
+      props
+    };
+  }
+});
 </script>
 
 <template>
-    <div> 
-        <select  class=" m-5 p-1 rounded-md drop-shadow-md" :class="`${selectSize} ${bgColor} ${textColor} ${hoverColor}`" >
-            <option selected hidden>{{ initMsg }}</option>
-            <option v-for="option in selOptions" :key="option.id">
-               {{ option.msg }}
-            </option>
-        </select>
+    <div :class="themeType" class="w-1/5 rounded-md text-center">
+      <button @click="isOpen = !isOpen">{{ props.theme }}</button>
+      <transition>
+        <div v-if="isOpen">
+          <template v-for="(child, index) in children">
+            <div :class="themeChildType" v-if="index !== clickIndex" :key="index">
+              <slot :name="`item-${index}`">
+                {{child.children}}
+              </slot>
+            </div>
+          </template>
+        </div>
+      </transition>
     </div>
-</template>
+  </template>
 
 
