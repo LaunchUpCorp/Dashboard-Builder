@@ -6,9 +6,9 @@ interface DropdownThemes {
 }
 
 const themeTypes = {
-    'default': 'bg-slate-500',
-    'dark': 'bg-slate-800',
-    'light': 'bg-slate-300'
+    'default': 'bg-slate-500 text-black',
+    'dark': 'bg-slate-800 text-white',
+    'light': 'bg-slate-300 text-black'
 };
 
 const themeChildTypes = {
