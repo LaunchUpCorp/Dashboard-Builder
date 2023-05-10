@@ -33,6 +33,7 @@ export default defineComponent({
     const themeType = themeTypes[props.theme]
 
     const themeChildType = themeChildTypes[props.theme]
+
     //Open and close Dropdown
     function toggleDropdown(index: any) {
       if (clickIndex.value === index) {
@@ -58,7 +59,10 @@ export default defineComponent({
 
 <template>
     <div :class="themeType" class="w-1/5 rounded-md text-center">
-      <button @click="isOpen = !isOpen">{{ props.theme }}</button>
+        <div class="flex flex-row items-center px-2">
+            <button class="flex flex-grow items-center text-center justify-center" @click="isOpen = !isOpen">{{ props.theme }}</button>
+            <p class="ml-auto">{{ isOpen ? "v" : "^" }}</p>
+        </div>
       <transition>
         <div v-if="isOpen">
           <template v-for="(child, index) in children">

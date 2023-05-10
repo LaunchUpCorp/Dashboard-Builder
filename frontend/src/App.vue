@@ -1,6 +1,7 @@
 <script lang="ts">
     import { defineComponent } from 'vue';
     import Dropdown from './components/Dropdown/Dropdown.vue'
+    import Test  from './components/Test/Test.vue';
 
     
     export default defineComponent({
@@ -15,7 +16,7 @@
 <template>
     <div>
         <Dropdown class="m-5"
-            theme = "dark"
+            theme = "light"
         >
             <span>Item 1</span>
             <span>Item 2</span>
