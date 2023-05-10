@@ -1,7 +1,16 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
 
+export default defineComponent({
+  name: 'App',
+  components: {
+  
+  }
+})
 </script>
 
 <template>
-    <p class="m-3">HELLO WORLD</p>
-</template>
+    <div>
+      
+    </div>
+  </template>
