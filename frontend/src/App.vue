@@ -9,9 +9,11 @@ export default defineComponent({
     StatisticCard
   },
   setup() {
-    const dummyData = ref<any>({dataType: 100, date: "2023-04-01", time: "11:00:00"})
+    const dummyData = ref<any>({dataType: 100, date: "2023-05-12", time: "11:00:00"})
+    const dummyData2 = ref<any>({dataType: 100, date: "2023-05-15", time: "11:00:00"})
+    const dummyData3 = ref<any>({dataType: 100, date: "2023-03-12", time: "11:00:00"})
 
-    return { dummyData }
+    return { dummyData, dummyData2, dummyData3 }
   }
 
 
@@ -27,14 +29,24 @@ export default defineComponent({
 </script>
 
 <template>
-    <div class="bg-slate-100 w-full h-screen" >
-      <p class="p-5">Main Pge Msg</p>
-      <StatisticCard
-        theme = "default"
-        cardType = "Errors"
-        iconType = "sdasda"
-        :dummyData = dummyData
-      />
+    <div class="bg-slate-100 w-full h-screen p-5" >
+        <div class="space-y-5">
+          <StatisticCard
+            theme = "dark"
+            cardType = "Income"
+            :dummyData = dummyData
+          />
+          <StatisticCard
+            theme = "default"
+            cardType = "Errors"
+            :dummyData = dummyData2
+          />
+          <StatisticCard
+            theme = "light"
+            cardType = "Completed"
+            :dummyData = dummyData3
+          />
+      </div>
     </div>
   </template>
 
