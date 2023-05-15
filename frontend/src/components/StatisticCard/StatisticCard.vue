@@ -40,13 +40,13 @@ export default defineComponent({
             default: "Type"
         },
         //Data
-        dummyData: {
+        data: {
             type: Object as PropType<data>
         }
     },
     setup(props,) {
         const type = props.cardType
-        const data = props.dummyData
+        const statData = props.data
         const themeType = themeTypes[props.theme]
         const themeChildType = themeChildTypes[props.theme]
 
@@ -55,7 +55,7 @@ export default defineComponent({
         function calculateLastTimeUpdate() {
             const currentDate = new Date();
             const currentTime = currentDate.getTime();
-            const lastUpdateTime = new Date(`${data?.date}T${data?.time}`).getTime(); 
+            const lastUpdateTime = new Date(`${statData?.date}T${statData?.time}`).getTime(); 
             const timeDiffSeconds = Math.floor((currentTime - lastUpdateTime) / 1000);
             if ( lastUpdateTime > currentTime ||  isNaN(timeDiffSeconds) ) {
                 lastUpdate.value = 'Time Error'
@@ -85,7 +85,7 @@ export default defineComponent({
             calculateLastTimeUpdate()
         })
 
-        return { themeType, themeChildType, type, data, lastUpdate, calculateLastTimeUpdate}
+        return { themeType, themeChildType, type, statData, lastUpdate, calculateLastTimeUpdate}
     },
 })
 </script>

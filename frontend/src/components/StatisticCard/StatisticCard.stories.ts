@@ -17,9 +17,6 @@ export default {
             control: 'select',
             options: [ 'light', 'dark', 'default', 'blue', 'red' ]
         },
-        dummyData: {
-            
-        }
     },
 } as Meta
 
@@ -28,7 +25,7 @@ const Template: Story<cardThemes> = (args: cardThemes) =>
         components: { StatisticCard },
         setup() {
 
-            args.dummyData = {dataType: 100, date: "2023-03-12", time: "11:00:00"}
+            args.data = {dataType: 100, date: "2023-03-12", time: "11:00:00"}
             return {
                 args,
             };
