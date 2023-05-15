@@ -1,15 +1,16 @@
 <script lang="ts">
-    import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 
-    
-    export default defineComponent({
-        name: 'Main Component',
-        components: {
-        },
-    })
-
+export default defineComponent({
+  name: 'App',
+  components: {
+  
+  }
+})
 </script>
 
 <template>
-    <h1>Dashboard Builder</h1>
-</template>
+    <div>
+      
+    </div>
+  </template>
