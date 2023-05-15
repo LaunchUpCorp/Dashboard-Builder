@@ -1,6 +1,6 @@
 import { defineComponent } from "vue";
 import type { Meta } from '@storybook/vue3';
-import Upload from './Upload.vue'
+import Upload from './index.vue';
 import '../../index.css';
 
 export default {
