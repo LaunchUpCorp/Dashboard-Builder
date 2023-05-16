@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, onMounted, PropType, ref } from 'vue'
+import { defineComponent, onMounted, PropType, ref } from 'vue';
 
 interface data {
     dataType: String,
@@ -45,12 +45,12 @@ export default defineComponent({
         }
     },
     setup(props,) {
-        const type = props.cardType
-        const statData = props.data
-        const themeType = themeTypes[props.theme]
-        const themeChildType = themeChildTypes[props.theme]
+        const type = props.cardType;
+        const statData = props.data;
+        const themeType = themeTypes[props.theme];
+        const themeChildType = themeChildTypes[props.theme];
 
-        let lastUpdate = ref<String>("Temp")
+        let lastUpdate = ref<String>("Temp");
 
         function calculateLastTimeUpdate() {
             const currentDate = new Date();
@@ -82,7 +82,7 @@ export default defineComponent({
         }
 
         onMounted(() => {
-            calculateLastTimeUpdate()
+            calculateLastTimeUpdate();
         })
 
         return { themeType, themeChildType, type, statData, lastUpdate, calculateLastTimeUpdate}
