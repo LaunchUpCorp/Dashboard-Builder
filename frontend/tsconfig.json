@@ -10,5 +10,10 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "importsNotUsedAsValues": "error",
+    "ignoreDeprecations": "5.0",
+    "module": "esnext"
+  }
 }
