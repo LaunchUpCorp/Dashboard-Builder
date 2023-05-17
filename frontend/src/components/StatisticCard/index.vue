@@ -39,6 +39,10 @@ export default defineComponent({
             type: String,
             default: "Type"
         },
+        iconType: {
+            type: String,
+            default: "Default Icon"
+        },
         //Data
         data: {
             type: Object as PropType<data>
@@ -46,6 +50,7 @@ export default defineComponent({
     },
     setup(props,) {
         const type = props.cardType;
+        const icon = props.iconType;
         const statData = props.data;
         const themeType = themeTypes[props.theme];
         const themeChildType = themeChildTypes[props.theme];
@@ -85,7 +90,7 @@ export default defineComponent({
             calculateLastTimeUpdate();
         })
 
-        return { themeType, themeChildType, type, statData, lastUpdate, calculateLastTimeUpdate}
+        return { themeType, icon, themeChildType, type, statData, lastUpdate, calculateLastTimeUpdate}
     },
 })
 </script>
@@ -94,7 +99,7 @@ export default defineComponent({
     <div>
         <div class="flex flex-col w-1/2 rounded-md border drop-shadow-md border-black" :class="themeType">
             <div class="flex flex-row">
-                <p class="flex-grow mx-4 my-2">{{ cardType }} Icon</p> 
+                <p class="flex-grow mx-4 my-2">{{ icon }} Icon</p> 
                 <div class="flex flex-col mx-4 my-2">
                     <p class="text-sm text-right" :class="themeChildType">{{cardType}}</p>
                     <p>{{ data?.dataType }}</p>
