@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { PropType, ButtonHTMLAttributes, computed } from 'vue'
+import { computed } from 'vue'
+import type { PropType, ButtonHTMLAttributes } from 'vue'
 
 interface buttonVariants {
   variant:

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 import Button from './index.vue'
 import { Icon } from '@iconify/vue'
 
@@ -86,16 +86,19 @@ export const ButtonWithTextAndIcon: Story = {
   })
 }
 
+//this story uses a template element and an arg called 'label' to allow storybook user to dynamically change button label in storybook
 export const Primary: Story = {
   render: (args) => ({
     components: { Button },
     setup() {
       return { args }
     },
-    template: '<Button v-bind="args">Primary</Button>'
+    template:
+      '<Button v-bind="args"><template v-slot><text v-html="args.label" /></template></Button>'
   }),
   args: {
-    variant: 'primary'
+    variant: 'primary',
+    label: 'Primary'
   }
 }
 
