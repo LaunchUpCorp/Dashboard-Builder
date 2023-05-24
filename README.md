@@ -32,7 +32,7 @@ Contains all the components used in the application. Each component has its own 
 - `index.vue` - Contains the component code.
 - any other files that are required by the component.
 
-_example of component folder structure_
+**example of component folder structure**
 
 > src
 > ├── components
