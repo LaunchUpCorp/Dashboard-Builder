@@ -1,11 +1,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Table from './components/Table/Table.vue'
 export default defineComponent({
   name: 'App',
-  components: {}
+  components: { Table }
 })
 </script>
 
 <template>
-  <div></div>
+  <div>
+    <Table></Table>
+  </div>
 </template>

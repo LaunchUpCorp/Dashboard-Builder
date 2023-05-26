@@ -28,3 +28,11 @@ export const Delete: Story = {
     await userEvent.click(DeleteButton)
   }
 }
+export const Search: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const SearchInput = await canvas.getByPlaceholderText('Filter by calories')
+    await userEvent.click(SearchInput)
+    await userEvent.keyboard('159')
+  }
+}

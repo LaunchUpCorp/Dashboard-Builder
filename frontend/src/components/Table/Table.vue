@@ -17,11 +17,17 @@
                 @click="sortDessert(dessertkey)"
               />
             </div>
+            <input
+              type="text"
+              :placeholder="`Filter by ${dessertkey}`"
+              v-model="filter"
+              @input="filteredRows(dessertkey)"
+            />
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="dessert in sortedData" :key="dessert.id">
+        <tr v-for="dessert in filteredData" :key="dessert.id">
           <td
             v-for="dessertkey in dessertkeys"
             :key="dessertkey"
@@ -42,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 
 export default defineComponent({
@@ -182,6 +188,16 @@ export default defineComponent({
       }
       return sortedData
     }
+    const filter = ref('')
+    let filteredData = ref(sortedData)
+    function filteredRows(dessertkey: string) {
+      filteredData.value = sortedData.value.filter((dessert) => {
+        const searchTerm = filter.value.toLowerCase()
+        const toSearch = dessert[dessertkey as keyof typeof dessert]
+        return String(toSearch).toLowerCase().includes(searchTerm)
+      })
+      return filteredData
+    }
     const dessertkeys = ref(Object.keys(sortedData.value[0]))
     return {
       itemsPerPage,
@@ -191,7 +207,10 @@ export default defineComponent({
       sortedbyASC,
       sortDessert,
       sortedData,
-      dessertkeys
+      dessertkeys,
+      filteredRows,
+      filter,
+      filteredData
     }
   }
 })
