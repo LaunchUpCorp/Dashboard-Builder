@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/vue3'
-//loads in the tailwind styles to Storybook:
-import '../src/main.css' 
+import '../src/index.css'
 
 const preview: Preview = {
   parameters: {
@@ -13,5 +12,4 @@ const preview: Preview = {
     }
   }
 }
-
 export default preview
